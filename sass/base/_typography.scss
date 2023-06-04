@@ -1,0 +1,117 @@
+/* Fonts */
+/** 100, 300, 400, 700, 900 */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+
+/* Scroll bar */
+/* Establecer el ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+/* Establecer el color de fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to left top,
+    rgba($color__primary-light, 1),
+    rgba($color__primary-dark, 1)
+  );
+}
+
+/* Establecer el color de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: $color-white;
+}
+
+/* Establecer el color de la barra de desplazamiento al pasar el cursor por encima */
+::-webkit-scrollbar-thumb:hover {
+  background: $color-grey-light-1;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out alternate backwards;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s 0.5s ease-out alternate backwards;
+    margin-bottom: 6rem;
+
+    @include respond(phone) {
+      letter-spacing: .5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    $color__primary-light,
+    $color__primary-dark
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: transform 0.2s ease-in-out;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    transform: skewY(-2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
